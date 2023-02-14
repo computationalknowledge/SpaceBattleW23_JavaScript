@@ -1,11 +1,13 @@
-class Starship() {
-    phaserEnergy = 1000;
-    numberOfPhotonTorpedos = 20;
-    energyPerPhotonTorpedo = 50;
-    shieldStrength = 1000;
-    FleetDesignation = "";
-
-   
+class Starship {
+    constructor(phaserCharge_initial, numberOfPhotonTorpedos, energyPerPhotonTorpedo, 
+            shieldEnergy_initial, FleetDesignation) {
+                this.phaserCharge_initial = phaserCharge_initial;
+                this.numberOfPhotonTorpedos = numberOfPhotonTorpedos;
+                this.energyPerPhotonTorpedo = energyPerPhotonTorpedo;               
+                this.shieldEnergy_initial   = shieldEnergy_initial;
+                this.FleetDesignation = FleetDesignation;
+            }
+    reportStatus() {return this.FleetDesignation;}
     firePhasers() {
         // acquire the Object Reference for the Enemy Ship
          
@@ -24,9 +26,14 @@ var RomulanOrderOfBattle = Array();
 
 // make 20 Federation Ships
 for (counter = 0; counter < 20; counter++){
-    FederationOrderOfBattle[counter] = new Starship(1000);
+    FederationOrderOfBattle[counter] = new Starship(
+        10000,
+        25, 
+        25,                
+        10000, 
+        "Starfleet");
+    console.log(FederationOrderOfBattle[counter].reportStatus());
 }
-
 
 // const Enterprise = new Starship();
 // Enterprise.reportShieldStrength();
